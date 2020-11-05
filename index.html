@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My New Awesome Web Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="hero">
+        <div class="navbar">
+            <img src="images/logo.png" class="logo">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="images/user.jpg" class="logo">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>FREAK ICE STORM OF 2020</h1>
+				<h2><em>The day started off good but who knew around 10:30 am October 28, 2020 all hell would broke loose. The ice storm caused the trees fall and a tree fell and crushed my van 😂</em></h2>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+
+        <div class="slider">
+            <img src="images/left-arrow.jpg" id="prev">
+            <div class="preview">
+                <img src="images/small1.jpg" class="active thumbnail">
+                <img src="images/small2.jpg" class="thumbnail">
+                <img src="images/small3.jpg" class="thumbnail">
+                <img src="images/small4.jpg" class="thumbnail">
+                <img src="images/small5.jpg" class="thumbnail">
+            </div>
+            <img src="images/right-arrow.jpg" id="next">
+        </div>
+    </div>
+
+    <script>
+
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array(
+            "images/treestart1.jpg",
+            "images/treestart2.jpg",
+            "images/treestart3.jpg",
+            "images/treestart4.jpg",
+            "images/treestart5.jpg",
+
+        );
+        let i = 0;
+        next.onclick = function() {
+
+            if(i < 4){
+            hero.style.backgroundImage = 'url("'+backgroundImg[i+ 1]+'")';
+            thumbnail[i + 1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i++;
+            
+            }
+        }
+
+        
+            prev.onclick = function () {
+
+                if (i > 0) {
+                    hero.style.backgroundImage = 'url("' + backgroundImg[i - 1] + '")';
+                    thumbnail[i - 1].classList.add("active");
+                    thumbnail[i].classList.remove("active");
+                    i--;
+                }
+            }
+    </script>
+
+</body>
+
+</html>
